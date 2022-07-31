@@ -1,0 +1,76 @@
+body {
+  background-image: url("../images/purplebg.jpg");
+  margin: 3em;
+  font-family: "Noto Sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+
+header {
+  height: 100px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  padding: 5px 5px 5px 30px;
+  align-content: center;
+}
+nav .searchbar {
+  position: relative;
+  width: 50vw;
+  height: 100%;
+}
+nav .searchbar input {
+  width: 50%;
+  border: 1px #000 solid;
+  border-radius: 15px;
+  padding: 5px 5px 5px 25px;
+  position: absolute;
+}
+nav ul {
+  display: flex;
+  list-style-type: none;
+}
+nav ul a {
+  color: white;
+  padding: 0.5em 1.5em;
+}
+nav ul a:hover {
+  background: rgb(94, 85, 114);
+}
+
+section.g-content {
+  color: white;
+}
+section.g-content .vision {
+  width: auto;
+  height: auto;
+  margin: 3em 0.25em;
+}
+section.g-content .vision .v2 {
+  transform: translateX(25vw);
+}
+section.g-content .vision .v3 {
+  transform: translateX(50vw);
+}
+section.g-content .vision .v4 {
+  transform: translateX(75vw);
+}
+section.g-content .vision p {
+  margin: 0.5em;
+  font-size: 5rem;
+  font-style: italic;
+}
+section.g-content .vision p span.init {
+  font-weight: bolder;
+}
+section.g-content .desc {
+  font-size: 20px;
+}/*# sourceMappingURL=main.css.map */
