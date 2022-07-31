@@ -1,0 +1,82 @@
+body {
+    background-image: url("../images/purplebg.jpg");
+    margin: 3em;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+header {
+    height: 100px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    padding: 5px 5px 5px 30px;
+    align-content: center;
+
+    .searchbar {
+        position: relative;
+        width: 50vw;
+        height: 100%;
+
+        input {
+            width: 50%;
+            border: 1px #000 solid;
+            border-radius: 15px;
+            padding: 5px 5px 5px 25px;
+            position: absolute;
+            
+        }
+    }
+
+    ul {
+        display: flex;
+        list-style-type: none;
+
+        a {
+            color:white;
+            padding: .5em 1.5em;
+
+            &:hover {
+                background: rgb(94, 85, 114);
+            }
+        }
+    }
+}
+section.g-content {
+    color: white;
+    .vision {
+        width: auto;
+        height: auto;
+        margin: 3em 0.25em;
+        .v2 {
+            transform: translateX(25vw);
+        }
+        .v3 {
+            transform: translateX(50vw);
+        }
+        .v4 {
+            transform: translateX(75vw);
+        }
+        p {
+            margin: 0.5em;
+            font-size: 5rem;
+            font-style: italic;
+            span.init {
+                font-weight: bolder;
+            }
+        }
+    }
+
+    .desc {
+        font-size: 20px;
+    }
+}
