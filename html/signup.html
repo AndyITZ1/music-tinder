@@ -8,41 +8,93 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/signform.css">
 </head>
 <body>
     <div class="wrapper">
         <header>
-            <h1>Sign Up!</h1>
+            <a href="/html/index.html" class="logo">MuseIt</a>
         </header>
-        <section class="sign-form">
-            <form action="">
-                <div class="user-details">
-                    <div>
-                        <label for="fname">First Name</label>
-                        <input type="text" class="fname" name="fname" required>
+        <section>
+            <div class="tabbed-pane-wrapper">
+                <div class="tabbed-panes">
+                    <div class="tabbed-signuptab" id="signupform">Sign Up</div>
+                    <div class="tabbed-logintab" id="loginform">Login</div>
+                </div>
+                <div class="tabbed-pane-content sform" id="sform">
+                    <div class="formheader">
+                        <h1 class="form-header">Sign Up Now!</h1>
+                        <p class="form-desc">Join the greatest <br> music community!</p>
                     </div>
-                    <div>
-                        <label for="lname">Last Name</label>
-                        <input type="text" class="lname" name="lname" required>
-                    </div>
-                    <div>
-                        <label for="email">Email Address</label>
-                        <input type="text" class="email" name="email" required>
-                    </div>
-                    <div>
-                        <label for="password">Password</label>
-                        <input type="password" class="password" name="password" required>
-                    </div>
-                    <div>
-                        <label for="cpassword">Confirm Password</label>
-                        <input type="password" class="cpassword" name="cpassword" required>
+                    <div class="form-content">
+                        <form action="">
+                            <div class="form-input">
+                                <input type="text" placeholder="Username" required>
+                            </div>
+                            <div class="form-input">
+                                <input type="email" name="" id="" placeholder="Email Address">
+                            </div>
+                            <div class="form-input">
+                                <input type="password" name="" id="" placeholder="Password">
+                            </div>
+                            <div class="tos">
+                                <span>
+                                    By clicking "Sign up," you agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.
+                                </span>
+                            </div>
+                            <button class="form-button" type="button">
+                                <span class="button-content">Sign up</span>
+                            </button>
+                        </form>
                     </div>
                 </div>
-                <div class="submit-btn">
-                    <input type="submit" value="Register">
+                <div class="tabbed-pane-content lform" id="lform">
+                    <div class="formheader">
+                        <h1 class="form-header">Login into your account.</h1>
+                        <p class="form-desc">Join the greatest <br> music community!</p>
+                    </div>
+                    <div class="form-content">
+                        <form action="">
+                            <div class="form-input">
+                                <input type="text" placeholder="Username" required>
+                            </div>
+                            <div class="form-input">
+                                <input type="password" name="" id="" placeholder="Password">
+                            </div>
+                            <div class="tos">
+                                <span>
+                                    By clicking "Login," you agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.
+                                </span>
+                            </div>
+                            <button class="form-button" type="button">
+                                <span class="button-content">Login</span>
+                            </button>
+                            <br>
+                            <a href="#" class="fpass">Forgot your password?</a>
+                        </form>
+                    </div>
                 </div>
-            </form>
+            </div>
         </section>
     </div>
+    <script>
+        var signup = document.getElementById("signupform");
+        var login = document.getElementById("loginform");
+        var sform = document.getElementById("sform");
+        var lform = document.getElementById("lform");
+
+        signup.onclick = function() {
+            login.style.backgroundColor = "rgb(233, 233, 233)";
+            signup.style.backgroundColor = "white";
+            sform.style.display = "block";
+            lform.style.display = "none";
+        }
+        login.onclick = function() {
+            login.style.backgroundColor = "white";
+            signup.style.backgroundColor = "rgb(233, 233, 233)";
+            sform.style.display = "none";
+            lform.style.display = "block";
+        }
+    </script>
 </body>
 </html>
