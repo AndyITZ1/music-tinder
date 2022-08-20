@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/signform.css">
+    <link rel="stylesheet" href="sweetalert2.min.css">
 </head>
 <body>
     <div class="wrapper">
@@ -42,7 +43,7 @@
                                     By clicking "Sign up," you agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.
                                 </span>
                             </div>
-                            <button class="form-button" type="button">
+                            <button class="form-button" type="submit">
                                 <span class="button-content">Sign up</span>
                             </button>
                         </form>
@@ -77,6 +78,8 @@
             </div>
         </section>
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
     <script>
         var signup = document.getElementById("signupform");
         var login = document.getElementById("loginform");
@@ -88,12 +91,15 @@
             signup.style.backgroundColor = "white";
             sform.style.display = "block";
             lform.style.display = "none";
+            document.title = "Sign Up";
+            Swal.fire('Logging in');
         }
         login.onclick = function() {
             login.style.backgroundColor = "white";
             signup.style.backgroundColor = "rgb(233, 233, 233)";
             sform.style.display = "none";
             lform.style.display = "block";
+            document.title = "Login";
         }
     </script>
 </body>
