@@ -161,22 +161,21 @@ header {
 
 nav {
     display: flex;
-    // position: relative;
     justify-content: space-between;
     text-transform: uppercase;
     padding: 5px 5px 5px 10px;
     height: 100%;
     width: 100%;
-    align-content: center;
+    align-items: center;
     color: black;
 
     .logo {
-        position: relative;
+        // position: relative;
         padding: 0.5em 1em;
     }
 
     .searchbar {
-        position: relative;
+        // position: relative;
         // top: 2.5px;
         // padding: 0.5em 1em;
         margin: 0.5em auto;
@@ -206,12 +205,18 @@ nav {
     ul {
         display: flex;
         list-style-type: none;
-        position: relative;
-        justify-content: space-between;
+        // position: relative;
+        align-items: center;
         padding: 0.5em 1em;
         bottom: 0.85em;
         // left: 60em;
         // bottom: -0.75em;
+
+        li {
+            height: 30px;
+            margin: 0 1em;
+            
+        }
 
         .dropdown {
             position: relative;
@@ -220,7 +225,7 @@ nav {
 
         a {
             // color: black;
-            margin: 1em;
+            // margin: 1em;
             white-space: nowrap;
             &:hover {
                 background: rgb(94, 85, 114);
@@ -229,6 +234,22 @@ nav {
 
         .dropbtn {
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+
+            img {
+                height: 100%;
+            }
+
+            .user-name {
+                height: 100%;
+            }
+        }
+
+        .dropbtn > * {
+            pointer-events: none;
         }
 
         .account-actions {
@@ -361,6 +382,17 @@ section.bodywrapper {
                 .poster-name {
                     font-family: 'Ubuntu', 'sans-serif';
                     font-weight: bold;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                .posted-date {
+                    font-family: 'Ubuntu', 'sans-serif';
+                    font-weight: bold;
+                    margin-left: auto;
+                    padding-right: 1em;
+                    white-space: nowrap;
                 }
             }
 
@@ -372,6 +404,15 @@ section.bodywrapper {
                 
                 .post-title {
                     margin-left: 1em;
+                    h1 {
+                        margin-bottom: 0;
+                    }
+                }
+                
+                .post-text {
+                    margin-left: 0.8em;
+                    font-size: 20px;
+                    padding: 1em 0;
                 }
 
                 .media-container {
@@ -386,7 +427,6 @@ section.bodywrapper {
 
                     }
                 }
-                
             }
 
             .post-footer {
@@ -395,6 +435,7 @@ section.bodywrapper {
                 align-items: center;
                 height: 36px;
                 color: inherit;
+                border-top: 1px solid black;
 
                 .comment-button {
                     font-size: 12px;
@@ -406,7 +447,17 @@ section.bodywrapper {
                     color: inherit;
                     margin-left: 1em;
                     border: 0;
-                    padding: 0;
+                    padding: 0 8px;
+
+                    img {
+                        height: 20px;
+                    }
+
+                    .comment-word {
+                        font-family: 'Ubuntu', sans-serif;
+                        margin-left: 4px;
+                        font-weight: 700;
+                    }
 
                     .comm-button {
                         height: 100%;
@@ -598,62 +649,312 @@ section.bodywrapper {
     }
 }
 
-@media only screen and (max-width: 1200px) {
-    // html {
-    //     min-height: 100%;
-
-    //     display: flex;
-    //     flex-direction: column;
-    // }
-    
-    // body {
-    //     flex-grow: 1;
-    // }
+@media only screen and (max-width: 1000px) {
     section.bodywrapper {
-        margin: 3em 4em 0 4em;
+        // background-color: pink;
+        color: white;
+        display: flex;
+        justify-content: center;
+        // margin: 3.5em 6em 0 6em;
+        padding: 80px 24px 20px 24px;
+        margin: 0 auto;
+        column-gap: 8px;
+        height: 100%;
     
         .post-section {
-            margin-left: 1em;
+            // background-color: green;
+            max-width: 580px;
+            width: 100%;
+            // margin-left: 2em;
+            height: 100%;
+            
+            .post {
+                background-color: white;
+                color: black;
+                border-radius: 3px;
+                position: relative;
+                margin-bottom: 20px;
+                // height: 100%;
+    
+                .post-header {
+                    height: 60px;
+                    color: inherit;
+                    // background-color: #a886b4;
+                    display: flex;
+                    align-items: center;
+                    column-gap: 15px;
+                    border-bottom: 1px solid black;
+    
+                    .poster-profile-img {
+                        height: 90%;
+                        margin-left: 1em;
+    
+                        img {
+                            height: 100%;
+                        }
+                    }
+    
+                    .poster-name {
+                        font-family: 'Ubuntu', 'sans-serif';
+                        font-weight: bold;
+                    }
+    
+                    .posted-date {
+                        font-family: 'Ubuntu', 'sans-serif';
+                        font-weight: bold;
+                        margin-left: auto;
+                        padding-right: 1em;
+                    }
+                }
+    
+                .post-body {
+                    // text-align: center;
+                    position: relative;
+                    height: 100%;
+                    width: 100%;
+                    
+                    .post-title {
+                        margin-left: 1em;
+                        h1 {
+                            margin-bottom: 0;
+                        }
+                    }
+                    
+                    .post-text {
+                        margin-left: 0.8em;
+                        font-size: 20px;
+                        padding: 1em 0;
+                    }
+    
+                    .media-container {
+                        position: relative;
+                        height: 512px;
+                        max-height: 512px;
+    
+                        .media-body {
+                            height: 100%;
+                            object-fit: cover;
+                            width: 100%;
+    
+                        }
+                    }
+                }
+    
+                .post-footer {
+                    // background-color: #b27fc5;
+                    display: flex;
+                    align-items: center;
+                    height: 36px;
+                    color: inherit;
+                    border-top: 1px solid black;
+    
+                    .comment-button {
+                        font-size: 12px;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 2px;
+                        color: inherit;
+                        margin-left: 1em;
+                        border: 0;
+                        padding: 0 8px;
+    
+                        img {
+                            height: 20px;
+                        }
+    
+                        .comment-word {
+                            font-family: 'Ubuntu', sans-serif;
+                            margin-left: 4px;
+                            font-weight: 700;
+                        }
+    
+                        .comm-button {
+                            height: 100%;
+                            background: transparent;
+                            border: none;
+                            border-radius: 2px;
+                            padding: 8px;
+                            display: flex;
+                            align-items: center;
+    
+                            img {
+                                height: 20px;
+                            }
+        
+                            .comment-word {
+                                font-family: 'Ubuntu', sans-serif;
+                                margin-left: 4px;
+                                font-weight: 700;
+                            }
+                        }
+    
+                        
+                    }
+    
+                    .comment-button:hover {
+                        background-color: rgb(223, 223, 223);
+                    }
+    
+                    .like-button {
+                        display: flex;
+                        align-items: center;
+                        height: 100%;
+                        // background-color: white;
+                        padding: 0;
+                        border: 0;
+    
+                        button {
+                            height: 100%;
+                            background: transparent;
+                            border: none;
+                            border-radius: 2px;
+                            padding: 8px;
+                            display: flex;
+                            align-items: center;
+    
+                            img {
+                                height: 100%;
+                            }
+    
+                            .like-word {
+                                margin-left: 4px;
+                                font-size: 12px;
+                                font-weight: 700;
+                            }
+                        }
+                    }
+    
+                    .like-button:hover {
+                        background-color: rgb(223, 223, 223);
+                    }
+    
+                    .share-button {
+                        display: flex;
+                        align-items: center;
+                        height: 100%;
+                        // background-color: white;
+                        padding: 0;
+                        border: 0;
+    
+                        button {
+                            height: 100%;
+                            background: transparent;
+                            border: none;
+                            border-radius: 2px;
+                            padding: 8px;
+                            display: flex;
+                            align-items: center;
+    
+                            img {
+                                height: 100%;
+                            }
+    
+                            .share-word {
+                                color: Black;
+                                margin-left: 4px;
+                                font-size: 12px;
+                                font-weight: 700;
+                            }
+                        }
+                    }
+    
+                    .share-button:hover {
+                        background-color: rgb(223, 223, 223);
+                    }
+                }
+            }
+        
         }
     
         .forum-section {
             // background-color: orange;
-            margin: 0 1em;
+            max-width: 320px;
+            // margin: 0 2em;
             height: 100%;
+            color: black;
     
             .forum-profile {
-                // background-color: gray;
-                border-radius: 15px;
-                height: 500px;
+                background-color: white;
+                border-radius: 10px;
+                // height: auto;
                 margin: 0 1em;
                 position: relative;
     
                 .forum-name {
-                    font-size: 1em;
+                    text-align: center;
+                    // font-size: 1.2em;
+                    font-size: 16px;
+                    letter-spacing: .5px;
+                    line-height: 12px;
+                    padding: 12px 0 0;
                 }
     
                 .forum-img {
-                    height: 120px;
-                    width: 120px;
-
+                    color: black;
+                    margin-left: 50%;
+                    transform: translateX(-50%);
+                    height: 180px;
+                    width: 180px;
+                    border-radius: 50%;
     
                     #photo {
-
+                        height: 100%;
+                        width: 100%;
+                        border-radius: 50%;
                     }
     
                     #file {
-
+                        display: none;
                     }
     
                     #upload {
-
+                        height: 64px;
+                        width: 64px;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-40%, -60%);
+                        cursor: pointer;
+                        display: none;
                     }
                 }
     
                 .forum-desc {
                     font-size: 1em;
+                    margin: 2em 1em 0 1em;
                 }
     
+                .data-count {
+                    display: flex;
+                    justify-content: space-evenly;
+                    font-size: 0.8em;
+                    
+                    h2 {
+                        margin: 0;
+                    }
+    
+                    p {
+                        margin: 0 0 1em 0;
+                        font-weight: bold;
+                    }
+                }
+    
+                .join-forum {
+                    background-color: purple;
+                    box-shadow: none;
+                    color: white;
+                    font-size: 14px;
+                    position: relative;
+                    height: 10%;
+                    width: 75%;
+                    border-radius: 40px;
+                    border: 1px solid black;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    margin-bottom: 5%;
+                }
     
             }
         }
@@ -672,9 +973,8 @@ section.bodywrapper {
         }
         .menu {
             display: block;
-            fill:white;
+            fill: black;
             width: 2.2em;
-            margin-top: -1.5em;
             margin-right: 1em;
             padding: 0 0;
             cursor: pointer;
@@ -720,61 +1020,321 @@ section.bodywrapper {
     }
 
     section.bodywrapper {
+        // background-color: pink;
+        color: white;
         display: flex;
         flex-direction: column-reverse;
-        margin: 0;
-
+        // display: grid;
+        // grid-template-columns: 2fr 1fr;
+        // margin: 3.5em 5em 0 5em;
+        justify-content: center;
+        // margin: 3.5em 6em 0 6em;
+        padding: 80px 24px 20px 24px;
+        margin: 0 auto;
+        // column-gap: 8px;
+        height: 100%;
+    
         .post-section {
-            margin: 0;
-        }
-
-        .forum-section {
-            margin: 0;
-            height: 40%;
-
-            .forum-profile {
-                display: grid;
-                grid-template-columns: 1fr 1fr 2fr;
-                row-gap: 0px;
-                grid-template-areas:
-                "c2 c1 ."
-                "c3 c3 c3";
-                align-items: center;
-                height: 150px;
-                width: 100%;
-                margin: 0;
-                border-radius: 0;
-
-                .forum-name {
-                    font-size: 0.8em;
-                    grid-area: c1;
-                    margin-top: 20px;
-                }
-
-                .forum-img {
-                    grid-area: c2;
-                    margin-top: 20px;
-                    height: 70px;
-                    width: 70px;
-
-                    #upload {
-                        height: 32px;
-                        width: 32px;
-
+            // background-color: green;
+            max-width: 720px;
+            width: 100%;
+            // margin-left: 2em;
+            height: 100%;
+            
+            .post {
+                background-color: white;
+                color: black;
+                border-radius: 3px;
+                position: relative;
+                margin-bottom: 20px;
+                // height: 100%;
+    
+                .post-header {
+                    height: 60px;
+                    color: inherit;
+                    // background-color: #a886b4;
+                    display: flex;
+                    align-items: center;
+                    column-gap: 15px;
+                    border-bottom: 1px solid black;
+    
+                    .poster-profile-img {
+                        height: 90%;
+                        margin-left: 1em;
+    
                         img {
                             height: 100%;
+                        }
+                    }
+    
+                    .poster-name {
+                        // max-width: 300px;
+                        font-family: 'Ubuntu', 'sans-serif';
+                        font-weight: bold;
+                    }
+    
+                    .posted-date {
+                        font-family: 'Ubuntu', 'sans-serif';
+                        font-weight: bold;
+                        margin-left: auto;
+                        padding-right: 1em;
+                        white-space: nowrap;
+                    }
+                }
+    
+                .post-body {
+                    // text-align: center;
+                    position: relative;
+                    height: 100%;
+                    width: 100%;
+                    
+                    .post-title {
+                        margin-left: 1em;
+                        padding-right: 1em;
+                        h1 {
+                            margin-bottom: 0;
+                        }
+                    }
+                    
+                    .post-text {
+                        margin-left: 0.8em;
+                        font-size: 20px;
+                        padding: 1em 0;
+                        padding-right: 1em;
+                    }
+    
+                    .media-container {
+                        position: relative;
+                        height: 512px;
+                        max-height: 512px;
+    
+                        .media-body {
+                            height: 100%;
+                            object-fit: cover;
                             width: 100%;
+    
                         }
                     }
                 }
-
-                .forum-desc {
-                    grid-area: c3;
-                    font-size: 0.8em;
-                    margin: 0 1em;
+    
+                .post-footer {
+                    // background-color: #b27fc5;
+                    display: flex;
+                    align-items: center;
+                    height: 36px;
+                    color: inherit;
+                    border-top: 1px solid black;
+    
+                    .comment-button {
+                        font-size: 12px;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 2px;
+                        color: inherit;
+                        margin-left: 1em;
+                        border: 0;
+                        padding: 0 8px;
+    
+                        img {
+                            height: 20px;
+                        }
+    
+                        .comment-word {
+                            font-family: 'Ubuntu', sans-serif;
+                            margin-left: 4px;
+                            font-weight: 700;
+                        }
+    
+                        .comm-button {
+                            height: 100%;
+                            background: transparent;
+                            border: none;
+                            border-radius: 2px;
+                            padding: 8px;
+                            display: flex;
+                            align-items: center;
+    
+                            img {
+                                height: 20px;
+                            }
+        
+                            .comment-word {
+                                font-family: 'Ubuntu', sans-serif;
+                                margin-left: 4px;
+                                font-weight: 700;
+                            }
+                        }
+    
+                        
+                    }
+    
+                    .comment-button:hover {
+                        background-color: rgb(223, 223, 223);
+                    }
+    
+                    .like-button {
+                        display: flex;
+                        align-items: center;
+                        height: 100%;
+                        // background-color: white;
+                        padding: 0;
+                        border: 0;
+    
+                        button {
+                            height: 100%;
+                            background: transparent;
+                            border: none;
+                            border-radius: 2px;
+                            padding: 8px;
+                            display: flex;
+                            align-items: center;
+    
+                            img {
+                                height: 100%;
+                            }
+    
+                            .like-word {
+                                margin-left: 4px;
+                                font-size: 12px;
+                                font-weight: 700;
+                            }
+                        }
+                    }
+    
+                    .like-button:hover {
+                        background-color: rgb(223, 223, 223);
+                    }
+    
+                    .share-button {
+                        display: flex;
+                        align-items: center;
+                        height: 100%;
+                        // background-color: white;
+                        padding: 0;
+                        border: 0;
+    
+                        button {
+                            height: 100%;
+                            background: transparent;
+                            border: none;
+                            border-radius: 2px;
+                            padding: 8px;
+                            display: flex;
+                            align-items: center;
+    
+                            img {
+                                height: 100%;
+                            }
+    
+                            .share-word {
+                                color: Black;
+                                margin-left: 4px;
+                                font-size: 12px;
+                                font-weight: 700;
+                            }
+                        }
+                    }
+    
+                    .share-button:hover {
+                        background-color: rgb(223, 223, 223);
+                    }
                 }
             }
+        
         }
-
+    
+        .forum-section {
+            // background-color: orange;
+            max-width: 100%;
+            width: 100%;
+            margin-bottom: 20px;
+            height: 100%;
+            color: black;
+    
+            .forum-profile {
+                background-color: white;
+                border-radius: 10px;
+                // height: auto;
+                margin: 0 1em;
+                position: relative;
+    
+                .forum-name {
+                    text-align: center;
+                    // font-size: 1.2em;
+                    font-size: 16px;
+                    letter-spacing: .5px;
+                    line-height: 12px;
+                    padding: 12px 0 0;
+                }
+    
+                .forum-img {
+                    color: black;
+                    margin-left: 50%;
+                    transform: translateX(-50%);
+                    height: 180px;
+                    width: 180px;
+                    border-radius: 50%;
+    
+                    #photo {
+                        height: 100%;
+                        width: 100%;
+                        border-radius: 50%;
+                    }
+    
+                    #file {
+                        display: none;
+                    }
+    
+                    #upload {
+                        height: 64px;
+                        width: 64px;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-40%, -60%);
+                        cursor: pointer;
+                        display: none;
+                    }
+                }
+    
+                .forum-desc {
+                    font-size: 1em;
+                    margin: 2em 1em 0 1em;
+                }
+    
+                .data-count {
+                    display: flex;
+                    justify-content: space-evenly;
+                    font-size: 0.8em;
+                    
+                    h2 {
+                        margin: 0;
+                    }
+    
+                    p {
+                        margin: 0 0 1em 0;
+                        font-weight: bold;
+                    }
+                }
+    
+                .join-forum {
+                    background-color: purple;
+                    box-shadow: none;
+                    color: white;
+                    font-size: 14px;
+                    position: relative;
+                    height: 10%;
+                    width: 75%;
+                    border-radius: 40px;
+                    border: 1px solid black;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    margin-bottom: 5%;
+                }
+    
+            }
+        }
     }
 }
