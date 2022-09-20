@@ -1,0 +1,1175 @@
+html {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  flex-grow: 1;
+  background-color: rgb(161, 132, 214);
+  font-family: "Noto Sans", sans-serif;
+  margin: 0;
+}
+
+body.dark {
+  background-color: rgb(62, 46, 92);
+}
+
+body.blue {
+  background-color: rgb(35, 61, 110);
+}
+
+.create-post-container {
+  position: fixed;
+  z-index: 81;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.create-post-container .create-post-content {
+  background-color: white;
+  width: 500px;
+  border-radius: 10px;
+}
+.create-post-container .create-post-content .create-post-header {
+  font-size: 22px;
+  font-weight: 600;
+  padding: 2px 16px;
+  border-bottom: 1px solid #bfbfbf;
+}
+.create-post-container .create-post-content .create-post-header #close {
+  font-size: 28px;
+  font-weight: bold;
+  float: right;
+}
+.create-post-container .create-post-content .create-post-header #close:hover, .create-post-container .create-post-content .create-post-header #close:focus {
+  color: #d0d6dd;
+  text-decoration: none;
+  cursor: pointer;
+}
+.create-post-container .create-post-content form {
+  margin: 20px 25px;
+}
+.create-post-container .create-post-content form :where(textarea, button) {
+  width: 100%;
+  outline: none;
+  border: none;
+}
+.create-post-container .create-post-content form textarea {
+  resize: none;
+  margin-top: 10px;
+  font-size: 18px;
+  min-height: 100px;
+}
+.create-post-container .create-post-content form .create-post-footer {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+.create-post-container .create-post-content form .create-post-footer .post-add {
+  height: 50px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 7px;
+  padding: 0 15px;
+  margin: 15px 0;
+  border: 1px solid #b9b9b9;
+}
+.create-post-container .create-post-content form .create-post-footer .post-add .media-list {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+.create-post-container .create-post-content form .create-post-footer .post-add .media-list li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+}
+.create-post-container .create-post-content form .create-post-footer .post-add .media-list li img {
+  cursor: pointer;
+  width: 23px;
+}
+.create-post-container .create-post-content form .create-post-footer .post-add .media-list li:hover {
+  background-color: #dfdee4;
+}
+.create-post-container .create-post-content form .create-post-footer .post-button {
+  height: 50px;
+  border-radius: 7px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: no-drop;
+  color: #bcc0c4;
+  background: #e2e5e9;
+}
+.create-post-container .create-post-content form textarea:valid ~ .create-post-footer button {
+  cursor: pointer;
+  color: white;
+  background: #5d2471;
+}
+.create-post-container .create-post-content.dark {
+  background-color: rgb(48, 48, 48);
+  color: white;
+}
+.create-post-container .create-post-content.blue {
+  background-color: rgb(11, 29, 90);
+  color: rgb(199, 199, 0);
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+
+header {
+  height: 60px;
+  z-index: 80;
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  color: black;
+}
+header a {
+  color: inherit;
+}
+
+header.dark {
+  background-color: rgb(48, 48, 48);
+  color: white;
+}
+
+header.blue {
+  background-color: rgb(11, 29, 90);
+  color: rgb(199, 199, 0);
+}
+
+nav.nav-main {
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  padding: 5px 5px 5px 10px;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+}
+nav.nav-main .logo {
+  padding: 0.5em 1em;
+}
+nav.nav-main .searchbar {
+  margin: 0.5em auto;
+  width: 100%;
+  max-width: 690px;
+}
+nav.nav-main .searchbar input {
+  width: 100%;
+  border: 1px #000 solid;
+  line-height: 16px;
+  font-size: 16px;
+  border-radius: 3px;
+  padding: 5px 5px 5px 10px;
+}
+nav.nav-main .theme-light {
+  height: 32px;
+  width: 32px;
+}
+nav.nav-main .theme-light:hover {
+  fill: rgb(180, 180, 180);
+  cursor: pointer;
+}
+nav.nav-main .theme-light.dark {
+  fill: white;
+}
+nav.nav-main .theme-light.dark:hover {
+  fill: rgb(105, 105, 105);
+}
+nav.nav-main .theme-light.blue {
+  fill: rgb(199, 199, 0);
+}
+nav.nav-main .theme-light.blue:hover {
+  fill: rgb(57, 82, 167);
+}
+nav.nav-main .menu, nav.nav-main .menu-closed, nav.nav-main .menu-opened {
+  display: none;
+}
+nav.nav-main ul {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+  padding: 0.5em 1em;
+  bottom: 0.85em;
+}
+nav.nav-main ul li {
+  height: 30px;
+  margin: 0 1em;
+}
+nav.nav-main ul .dropdown {
+  position: relative;
+  display: inline-block;
+}
+nav.nav-main ul a {
+  white-space: nowrap;
+}
+nav.nav-main ul a:hover {
+  background-color: rgb(94, 85, 114);
+}
+nav.nav-main ul .dropbtn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+nav.nav-main ul .dropbtn img {
+  height: 100%;
+  margin-right: 0.3em;
+  border-radius: 50%;
+}
+nav.nav-main ul .dropbtn .user-name {
+  height: 100%;
+}
+nav.nav-main ul .dropbtn > * {
+  pointer-events: none;
+}
+nav.nav-main ul .account-actions {
+  display: none;
+  position: absolute;
+  background-color: rgb(98, 79, 139);
+  z-index: 1;
+  right: -6px;
+  top: 36px;
+  padding: 0 0;
+  border-radius: 9px;
+  width: auto;
+  color: white;
+}
+nav.nav-main ul .account-actions a {
+  display: block;
+  font-size: 1em;
+  height: 100%;
+  margin: 10px;
+  padding: 0 1em;
+  text-align: center;
+}
+nav.nav-main ul .account-actions a:hover {
+  background-color: rgb(121, 98, 170);
+  border-radius: 10px;
+  margin: 10px;
+}
+nav.nav-main ul .account-actions a.blue:hover {
+  background-color: rgb(16, 45, 141);
+}
+nav.nav-main ul .account-actions.dark {
+  background-color: rgb(68, 68, 68);
+}
+nav.nav-main ul .account-actions.blue {
+  background-color: rgb(13, 36, 112);
+}
+nav.nav-main ul .show {
+  display: block;
+}
+
+.nav-mobile {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  min-height: 100vh;
+  z-index: 98;
+  background-color: #5d2471;
+  margin-top: 60px;
+  transition: 0.4s;
+}
+.nav-mobile a {
+  display: block;
+  text-align: center;
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto 16px;
+  padding: 12px 16px;
+  background-color: #6d2b85;
+  color: white;
+}
+.nav-mobile a:hover {
+  background-color: #7f329b;
+}
+.nav-mobile .user-acct {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+}
+.nav-mobile .user-acct img {
+  height: 100%;
+  margin-right: 0.3em;
+  border-radius: 50%;
+}
+
+.nav-mobile.is-active {
+  left: 100%;
+}
+
+section.bodywrapper {
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 80px 24px 20px 24px;
+  margin: 0 auto;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
+  height: 100%;
+}
+section.bodywrapper .post-section {
+  max-width: 720px;
+  width: 100%;
+  height: 100%;
+}
+section.bodywrapper .post-section .post {
+  background-color: white;
+  color: black;
+  border-radius: 3px;
+  position: relative;
+  margin-bottom: 20px;
+}
+section.bodywrapper .post-section .post .post-header {
+  height: 60px;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+  border-bottom: 1px solid black;
+}
+section.bodywrapper .post-section .post .post-header .poster-profile-img {
+  height: 90%;
+  margin-left: 1em;
+}
+section.bodywrapper .post-section .post .post-header .poster-profile-img img {
+  height: 100%;
+}
+section.bodywrapper .post-section .post .post-header .poster-name {
+  font-family: "Ubuntu", "sans-serif";
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+section.bodywrapper .post-section .post .post-header .posted-date {
+  font-family: "Ubuntu", "sans-serif";
+  font-weight: bold;
+  margin-left: auto;
+  padding-right: 1em;
+  white-space: nowrap;
+}
+section.bodywrapper .post-section .post .post-header.dark {
+  background: rgb(68, 68, 68);
+  color: white;
+}
+section.bodywrapper .post-section .post .post-header.blue {
+  background: darkblue;
+  color: turquoise;
+}
+section.bodywrapper .post-section .post .post-body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+section.bodywrapper .post-section .post .post-body .post-title {
+  margin-left: 1em;
+}
+section.bodywrapper .post-section .post .post-body .post-title h1 {
+  margin-bottom: 0;
+}
+section.bodywrapper .post-section .post .post-body .post-text {
+  margin-left: 0.8em;
+  font-size: 20px;
+  padding: 1em 0;
+}
+section.bodywrapper .post-section .post .post-body .media-container {
+  position: relative;
+  height: 512px;
+  max-height: 512px;
+}
+section.bodywrapper .post-section .post .post-body .media-container .media-body {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+section.bodywrapper .post-section .post .post-footer {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  color: black;
+  border-top: 1px solid black;
+}
+section.bodywrapper .post-section .post .post-footer .comment-button {
+  font-size: 12px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  color: inherit;
+  margin-left: 1em;
+  border: 0;
+  padding: 0 8px;
+}
+section.bodywrapper .post-section .post .post-footer .comment-button img {
+  height: 20px;
+}
+section.bodywrapper .post-section .post .post-footer .comment-button .comment-word {
+  font-family: "Ubuntu", sans-serif;
+  margin-left: 4px;
+  font-weight: 700;
+}
+section.bodywrapper .post-section .post .post-footer .comment-button .comm-button {
+  height: 100%;
+  background: transparent;
+  border: none;
+  border-radius: 2px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
+section.bodywrapper .post-section .post .post-footer .comment-button .comm-button img {
+  height: 20px;
+}
+section.bodywrapper .post-section .post .post-footer .comment-button .comm-button .comment-word {
+  font-family: "Ubuntu", sans-serif;
+  margin-left: 4px;
+  font-weight: 700;
+}
+section.bodywrapper .post-section .post .post-footer .comment-button:hover {
+  background-color: rgb(223, 223, 223);
+}
+section.bodywrapper .post-section .post .post-footer .like-button {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0;
+  border: 0;
+}
+section.bodywrapper .post-section .post .post-footer .like-button button {
+  height: 100%;
+  background: transparent;
+  border: none;
+  border-radius: 2px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
+section.bodywrapper .post-section .post .post-footer .like-button button img {
+  height: 100%;
+}
+section.bodywrapper .post-section .post .post-footer .like-button button .like-word {
+  color: black;
+  margin-left: 4px;
+  font-size: 12px;
+  font-weight: 700;
+}
+section.bodywrapper .post-section .post .post-footer .like-button button .like-word.dark {
+  color: white;
+}
+section.bodywrapper .post-section .post .post-footer .like-button button .like-word.blue {
+  color: yellow;
+}
+section.bodywrapper .post-section .post .post-footer .like-button:hover {
+  background-color: rgb(223, 223, 223);
+}
+section.bodywrapper .post-section .post .post-footer .share-button {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: inherit;
+  padding: 0;
+  border: 0;
+}
+section.bodywrapper .post-section .post .post-footer .share-button button {
+  height: 100%;
+  background: transparent;
+  border: none;
+  border-radius: 2px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
+section.bodywrapper .post-section .post .post-footer .share-button button img {
+  height: 100%;
+}
+section.bodywrapper .post-section .post .post-footer .share-button button .share-word {
+  margin-left: 4px;
+  font-size: 12px;
+  font-weight: 700;
+}
+section.bodywrapper .post-section .post .post-footer .share-button button .share-word.dark {
+  color: white;
+}
+section.bodywrapper .post-section .post .post-footer .share-button button .share-word.blue {
+  color: yellow;
+}
+section.bodywrapper .post-section .post .post-footer .share-button:hover {
+  background-color: rgb(223, 223, 223);
+}
+section.bodywrapper .post-section .post .post-footer.dark {
+  background-color: rgb(68, 68, 68);
+  color: white;
+}
+section.bodywrapper .post-section .post .post-footer.blue {
+  background-color: darkblue;
+  color: yellow;
+}
+section.bodywrapper .post-section .post.dark {
+  background-color: rgb(48, 48, 48);
+  color: white;
+}
+section.bodywrapper .post-section .post.blue {
+  background-color: rgb(0, 0, 90);
+  color: yellow;
+}
+section.bodywrapper .forum-section {
+  max-width: 320px;
+  height: 100%;
+  color: black;
+}
+section.bodywrapper .forum-section .forum-profile {
+  background-color: white;
+  border-radius: 10px;
+  margin: 0 1em 1em 1em;
+  position: relative;
+}
+section.bodywrapper .forum-section .forum-profile .index-title {
+  padding: 6px;
+  text-align: center;
+}
+section.bodywrapper .forum-section .forum-profile .index-desc {
+  padding: 0 12px 12px 12px;
+}
+section.bodywrapper .forum-section .forum-profile .forum-name {
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  line-height: 12px;
+  padding: 12px 0 0;
+}
+section.bodywrapper .forum-section .forum-profile .forum-img {
+  color: black;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
+}
+section.bodywrapper .forum-section .forum-profile .forum-img #photo {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+section.bodywrapper .forum-section .forum-profile .forum-img #file {
+  display: none;
+}
+section.bodywrapper .forum-section .forum-profile .forum-img #upload {
+  height: 64px;
+  width: 64px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -60%);
+  cursor: pointer;
+  display: none;
+}
+section.bodywrapper .forum-section .forum-profile .forum-desc {
+  font-size: 1em;
+  margin: 2em 1em 0 1em;
+  padding-bottom: 1em;
+}
+section.bodywrapper .forum-section .forum-profile .data-count {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 0.8em;
+}
+section.bodywrapper .forum-section .forum-profile .data-count h2 {
+  margin: 0;
+}
+section.bodywrapper .forum-section .forum-profile .data-count p {
+  margin: 0 0 1em 0;
+  font-weight: bold;
+}
+section.bodywrapper .forum-section .forum-profile .join-forum {
+  background-color: purple;
+  box-shadow: none;
+  color: white;
+  font-size: 14px;
+  position: relative;
+  height: 10%;
+  width: 75%;
+  border-radius: 40px;
+  border: 1px solid black;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 5%;
+}
+section.bodywrapper .forum-section .forum-profile.dark {
+  background-color: rgb(48, 48, 48);
+  color: white;
+}
+section.bodywrapper .forum-section .forum-profile.blue {
+  background-color: rgb(0, 0, 90);
+  color: yellow;
+}
+
+@media only screen and (max-width: 1000px) {
+  nav.nav-main .menu, nav.nav-main .menu-closed, nav.nav-main .menu-opened {
+    display: none;
+  }
+  section.bodywrapper {
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 80px 24px 20px 24px;
+    margin: 0 auto;
+    -moz-column-gap: 8px;
+         column-gap: 8px;
+    height: 100%;
+  }
+  section.bodywrapper .post-section {
+    max-width: 580px;
+    width: 100%;
+    height: 100%;
+  }
+  section.bodywrapper .post-section .post {
+    background-color: white;
+    color: black;
+    border-radius: 3px;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  section.bodywrapper .post-section .post .post-header {
+    height: 60px;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    -moz-column-gap: 15px;
+         column-gap: 15px;
+    border-bottom: 1px solid black;
+  }
+  section.bodywrapper .post-section .post .post-header .poster-profile-img {
+    height: 90%;
+    margin-left: 1em;
+  }
+  section.bodywrapper .post-section .post .post-header .poster-profile-img img {
+    height: 100%;
+  }
+  section.bodywrapper .post-section .post .post-header .poster-name {
+    font-family: "Ubuntu", "sans-serif";
+    font-weight: bold;
+  }
+  section.bodywrapper .post-section .post .post-header .posted-date {
+    font-family: "Ubuntu", "sans-serif";
+    font-weight: bold;
+    margin-left: auto;
+    padding-right: 1em;
+  }
+  section.bodywrapper .post-section .post .post-body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+  section.bodywrapper .post-section .post .post-body .post-title {
+    margin-left: 1em;
+  }
+  section.bodywrapper .post-section .post .post-body .post-title h1 {
+    margin-bottom: 0;
+  }
+  section.bodywrapper .post-section .post .post-body .post-text {
+    margin-left: 0.8em;
+    font-size: 20px;
+    padding: 1em 0;
+  }
+  section.bodywrapper .post-section .post .post-body .media-container {
+    position: relative;
+    height: 512px;
+    max-height: 512px;
+  }
+  section.bodywrapper .post-section .post .post-body .media-container .media-body {
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 100%;
+  }
+  section.bodywrapper .post-section .post .post-footer {
+    display: flex;
+    align-items: center;
+    height: 36px;
+    color: inherit;
+    border-top: 1px solid black;
+  }
+  section.bodywrapper .post-section .post .post-footer .comment-button {
+    font-size: 12px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    color: inherit;
+    margin-left: 1em;
+    border: 0;
+    padding: 0 8px;
+  }
+  section.bodywrapper .post-section .post .post-footer .comment-button img {
+    height: 20px;
+  }
+  section.bodywrapper .post-section .post .post-footer .comment-button .comment-word {
+    font-family: "Ubuntu", sans-serif;
+    margin-left: 4px;
+    font-weight: 700;
+  }
+  section.bodywrapper .post-section .post .post-footer .comment-button .comm-button {
+    height: 100%;
+    background: transparent;
+    border: none;
+    border-radius: 2px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+  }
+  section.bodywrapper .post-section .post .post-footer .comment-button .comm-button img {
+    height: 20px;
+  }
+  section.bodywrapper .post-section .post .post-footer .comment-button .comm-button .comment-word {
+    font-family: "Ubuntu", sans-serif;
+    margin-left: 4px;
+    font-weight: 700;
+  }
+  section.bodywrapper .post-section .post .post-footer .comment-button:hover {
+    background-color: rgb(223, 223, 223);
+  }
+  section.bodywrapper .post-section .post .post-footer .like-button {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+    border: 0;
+  }
+  section.bodywrapper .post-section .post .post-footer .like-button button {
+    height: 100%;
+    background: transparent;
+    border: none;
+    border-radius: 2px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+  }
+  section.bodywrapper .post-section .post .post-footer .like-button button img {
+    height: 100%;
+  }
+  section.bodywrapper .post-section .post .post-footer .like-button button .like-word {
+    margin-left: 4px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  section.bodywrapper .post-section .post .post-footer .like-button:hover {
+    background-color: rgb(223, 223, 223);
+  }
+  section.bodywrapper .post-section .post .post-footer .share-button {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+    border: 0;
+  }
+  section.bodywrapper .post-section .post .post-footer .share-button button {
+    height: 100%;
+    background: transparent;
+    border: none;
+    border-radius: 2px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+  }
+  section.bodywrapper .post-section .post .post-footer .share-button button img {
+    height: 100%;
+  }
+  section.bodywrapper .post-section .post .post-footer .share-button button .share-word {
+    color: Black;
+    margin-left: 4px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  section.bodywrapper .post-section .post .post-footer .share-button:hover {
+    background-color: rgb(223, 223, 223);
+  }
+  section.bodywrapper .forum-section {
+    max-width: 320px;
+    height: 100%;
+    color: black;
+  }
+  section.bodywrapper .forum-section .forum-profile {
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+  }
+  section.bodywrapper .forum-section .forum-profile .forum-name {
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    line-height: 12px;
+    padding: 12px 0 0;
+  }
+  section.bodywrapper .forum-section .forum-profile .forum-img {
+    color: black;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+  }
+  section.bodywrapper .forum-section .forum-profile .forum-img #photo {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+  }
+  section.bodywrapper .forum-section .forum-profile .forum-img #file {
+    display: none;
+  }
+  section.bodywrapper .forum-section .forum-profile .forum-img #upload {
+    height: 64px;
+    width: 64px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -60%);
+    cursor: pointer;
+    display: none;
+  }
+  section.bodywrapper .forum-section .forum-profile .forum-desc {
+    font-size: 1em;
+    margin: 2em 1em 0 1em;
+  }
+  section.bodywrapper .forum-section .forum-profile .data-count {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 0.8em;
+  }
+  section.bodywrapper .forum-section .forum-profile .data-count h2 {
+    margin: 0;
+  }
+  section.bodywrapper .forum-section .forum-profile .data-count p {
+    margin: 0 0 1em 0;
+    font-weight: bold;
+  }
+  section.bodywrapper .forum-section .forum-profile .join-forum {
+    background-color: purple;
+    box-shadow: none;
+    color: white;
+    font-size: 14px;
+    position: relative;
+    height: 10%;
+    width: 75%;
+    border-radius: 40px;
+    border: 1px solid black;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 5%;
+  }
+}
+@media only screen and (max-width: 800px) {
+  nav.nav-main .logo {
+    padding: 0 0;
+  }
+  nav.nav-main .searchbar {
+    display: none;
+  }
+  nav.nav-main .menu-closed {
+    display: block;
+    fill: black;
+    width: 2.2em;
+    margin-right: 1em;
+    padding: 0 0;
+    cursor: pointer;
+  }
+  nav.nav-main .menu-opened {
+    display: block;
+    fill: black;
+    width: 2.2em;
+    margin-right: 1em;
+    padding: 0 0;
+    cursor: pointer;
+  }
+  nav.nav-main ul {
+    display: none;
+  }
+  .nav-mobile.is-active {
+    left: 0;
+  }
+  section.bodywrapper {
+    color: white;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    padding: 80px 24px 20px 24px;
+    margin: 0 auto;
+    height: 100%;
+  }
+  section.bodywrapper .post-section {
+    max-width: 720px;
+    width: 100%;
+    height: 100%;
+  }
+  section.bodywrapper .post-section .post {
+    background-color: white;
+    color: black;
+    border-radius: 3px;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  section.bodywrapper .post-section .post .post-header {
+    height: 60px;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    -moz-column-gap: 15px;
+         column-gap: 15px;
+    border-bottom: 1px solid black;
+  }
+  section.bodywrapper .post-section .post .post-header .poster-profile-img {
+    height: 90%;
+    margin-left: 1em;
+  }
+  section.bodywrapper .post-section .post .post-header .poster-profile-img img {
+    height: 100%;
+  }
+  section.bodywrapper .post-section .post .post-header .poster-name {
+    font-family: "Ubuntu", "sans-serif";
+    font-weight: bold;
+  }
+  section.bodywrapper .post-section .post .post-header .posted-date {
+    font-family: "Ubuntu", "sans-serif";
+    font-weight: bold;
+    margin-left: auto;
+    padding-right: 1em;
+    white-space: nowrap;
+  }
+  section.bodywrapper .post-section .post .post-body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+  section.bodywrapper .post-section .post .post-body .post-title {
+    margin-left: 1em;
+    padding-right: 1em;
+  }
+  section.bodywrapper .post-section .post .post-body .post-title h1 {
+    margin-bottom: 0;
+  }
+  section.bodywrapper .post-section .post .post-body .post-text {
+    margin-left: 0.8em;
+    font-size: 20px;
+    padding: 1em 0;
+    padding-right: 1em;
+  }
+  section.bodywrapper .post-section .post .post-body .media-container {
+    position: relative;
+    height: 512px;
+    max-height: 512px;
+  }
+  section.bodywrapper .post-section .post .post-body .media-container .media-body {
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 100%;
+  }
+  section.bodywrapper .post-section .post .post-footer {
+    display: flex;
+    align-items: center;
+    height: 36px;
+    color: inherit;
+    border-top: 1px solid black;
+  }
+  section.bodywrapper .post-section .post .post-footer .comment-button {
+    font-size: 12px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    color: inherit;
+    margin-left: 1em;
+    border: 0;
+    padding: 0 8px;
+  }
+  section.bodywrapper .post-section .post .post-footer .comment-button img {
+    height: 20px;
+  }
+  section.bodywrapper .post-section .post .post-footer .comment-button .comment-word {
+    font-family: "Ubuntu", sans-serif;
+    margin-left: 4px;
+    font-weight: 700;
+  }
+  section.bodywrapper .post-section .post .post-footer .comment-button .comm-button {
+    height: 100%;
+    background: transparent;
+    border: none;
+    border-radius: 2px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+  }
+  section.bodywrapper .post-section .post .post-footer .comment-button .comm-button img {
+    height: 20px;
+  }
+  section.bodywrapper .post-section .post .post-footer .comment-button .comm-button .comment-word {
+    font-family: "Ubuntu", sans-serif;
+    margin-left: 4px;
+    font-weight: 700;
+  }
+  section.bodywrapper .post-section .post .post-footer .comment-button:hover {
+    background-color: rgb(223, 223, 223);
+  }
+  section.bodywrapper .post-section .post .post-footer .like-button {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+    border: 0;
+  }
+  section.bodywrapper .post-section .post .post-footer .like-button button {
+    height: 100%;
+    background: transparent;
+    border: none;
+    border-radius: 2px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+  }
+  section.bodywrapper .post-section .post .post-footer .like-button button img {
+    height: 100%;
+  }
+  section.bodywrapper .post-section .post .post-footer .like-button button .like-word {
+    margin-left: 4px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  section.bodywrapper .post-section .post .post-footer .like-button:hover {
+    background-color: rgb(223, 223, 223);
+  }
+  section.bodywrapper .post-section .post .post-footer .share-button {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+    border: 0;
+  }
+  section.bodywrapper .post-section .post .post-footer .share-button button {
+    height: 100%;
+    background: transparent;
+    border: none;
+    border-radius: 2px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+  }
+  section.bodywrapper .post-section .post .post-footer .share-button button img {
+    height: 100%;
+  }
+  section.bodywrapper .post-section .post .post-footer .share-button button .share-word {
+    color: Black;
+    margin-left: 4px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  section.bodywrapper .post-section .post .post-footer .share-button:hover {
+    background-color: rgb(223, 223, 223);
+  }
+  section.bodywrapper .forum-section {
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 20px;
+    height: 100%;
+    color: black;
+  }
+  section.bodywrapper .forum-section .forum-profile {
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+  }
+  section.bodywrapper .forum-section .forum-profile .forum-name {
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    line-height: 12px;
+    padding: 12px 0 0;
+  }
+  section.bodywrapper .forum-section .forum-profile .forum-img {
+    color: black;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+  }
+  section.bodywrapper .forum-section .forum-profile .forum-img #photo {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+  }
+  section.bodywrapper .forum-section .forum-profile .forum-img #file {
+    display: none;
+  }
+  section.bodywrapper .forum-section .forum-profile .forum-img #upload {
+    height: 64px;
+    width: 64px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -60%);
+    cursor: pointer;
+    display: none;
+  }
+  section.bodywrapper .forum-section .forum-profile .forum-desc {
+    font-size: 1em;
+    margin: 2em 1em 0 1em;
+  }
+  section.bodywrapper .forum-section .forum-profile .data-count {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 0.8em;
+  }
+  section.bodywrapper .forum-section .forum-profile .data-count h2 {
+    margin: 0;
+  }
+  section.bodywrapper .forum-section .forum-profile .data-count p {
+    margin: 0 0 1em 0;
+    font-weight: bold;
+  }
+  section.bodywrapper .forum-section .forum-profile .join-forum {
+    background-color: purple;
+    box-shadow: none;
+    color: white;
+    font-size: 14px;
+    position: relative;
+    height: 10%;
+    width: 75%;
+    border-radius: 40px;
+    border: 1px solid black;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 5%;
+  }
+}/*# sourceMappingURL=main.css.map */
