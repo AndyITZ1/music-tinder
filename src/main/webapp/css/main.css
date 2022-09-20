@@ -6,9 +6,17 @@ html {
 
 body {
   flex-grow: 1;
-  background-color: rgb(211, 211, 211);
+  background-color: rgb(161, 132, 214);
   font-family: "Noto Sans", sans-serif;
   margin: 0;
+}
+
+body.dark {
+  background-color: rgb(62, 46, 92);
+}
+
+body.blue {
+  background-color: rgb(35, 61, 110);
 }
 
 .create-post-container {
@@ -110,6 +118,14 @@ body {
   color: white;
   background: #5d2471;
 }
+.create-post-container .create-post-content.dark {
+  background-color: rgb(48, 48, 48);
+  color: white;
+}
+.create-post-container .create-post-content.blue {
+  background-color: rgb(11, 29, 90);
+  color: rgb(199, 199, 0);
+}
 
 .wrapper {
   width: 100%;
@@ -119,7 +135,6 @@ body {
 a {
   text-decoration: none;
   font-size: 1.3rem;
-  color: black;
 }
 
 header {
@@ -128,9 +143,23 @@ header {
   position: fixed;
   width: 100%;
   background-color: white;
+  color: black;
+}
+header a {
+  color: inherit;
 }
 
-nav {
+header.dark {
+  background-color: rgb(48, 48, 48);
+  color: white;
+}
+
+header.blue {
+  background-color: rgb(11, 29, 90);
+  color: rgb(199, 199, 0);
+}
+
+nav.nav-main {
   display: flex;
   justify-content: space-between;
   text-transform: uppercase;
@@ -138,17 +167,16 @@ nav {
   height: 100%;
   width: 100%;
   align-items: center;
-  color: black;
 }
-nav .logo {
+nav.nav-main .logo {
   padding: 0.5em 1em;
 }
-nav .searchbar {
+nav.nav-main .searchbar {
   margin: 0.5em auto;
   width: 100%;
   max-width: 690px;
 }
-nav .searchbar input {
+nav.nav-main .searchbar input {
   width: 100%;
   border: 1px #000 solid;
   line-height: 16px;
@@ -156,47 +184,69 @@ nav .searchbar input {
   border-radius: 3px;
   padding: 5px 5px 5px 10px;
 }
-nav .menu {
+nav.nav-main .theme-light {
+  height: 32px;
+  width: 32px;
+}
+nav.nav-main .theme-light:hover {
+  fill: rgb(180, 180, 180);
+  cursor: pointer;
+}
+nav.nav-main .theme-light.dark {
+  fill: white;
+}
+nav.nav-main .theme-light.dark:hover {
+  fill: rgb(105, 105, 105);
+}
+nav.nav-main .theme-light.blue {
+  fill: rgb(199, 199, 0);
+}
+nav.nav-main .theme-light.blue:hover {
+  fill: rgb(57, 82, 167);
+}
+nav.nav-main .menu, nav.nav-main .menu-closed, nav.nav-main .menu-opened {
   display: none;
 }
-nav ul {
+nav.nav-main ul {
   display: flex;
   list-style-type: none;
   align-items: center;
   padding: 0.5em 1em;
   bottom: 0.85em;
 }
-nav ul li {
+nav.nav-main ul li {
   height: 30px;
   margin: 0 1em;
 }
-nav ul .dropdown {
+nav.nav-main ul .dropdown {
   position: relative;
   display: inline-block;
 }
-nav ul a {
+nav.nav-main ul a {
   white-space: nowrap;
 }
-nav ul a:hover {
-  background: rgb(94, 85, 114);
+nav.nav-main ul a:hover {
+  background-color: rgb(94, 85, 114);
 }
-nav ul .dropbtn {
+nav.nav-main ul .dropbtn {
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
 }
-nav ul .dropbtn img {
+nav.nav-main ul .dropbtn img {
+  height: 100%;
+  margin-right: 0.3em;
+  border-radius: 50%;
+}
+nav.nav-main ul .dropbtn .user-name {
   height: 100%;
 }
-nav ul .dropbtn .user-name {
-  height: 100%;
-}
-nav ul .dropbtn > * {
+nav.nav-main ul .dropbtn > * {
   pointer-events: none;
 }
-nav ul .account-actions {
+nav.nav-main ul .account-actions {
   display: none;
   position: absolute;
   background-color: rgb(98, 79, 139);
@@ -205,60 +255,74 @@ nav ul .account-actions {
   top: 36px;
   padding: 0 0;
   border-radius: 9px;
-  width: 150px;
-}
-nav ul .account-actions a {
+  width: auto;
   color: white;
+}
+nav.nav-main ul .account-actions a {
   display: block;
-  font-size: 18px;
+  font-size: 1em;
   height: 100%;
-  margin: 10px 0;
+  margin: 10px;
+  padding: 0 1em;
   text-align: center;
 }
-nav ul .account-actions a:hover {
+nav.nav-main ul .account-actions a:hover {
   background-color: rgb(121, 98, 170);
   border-radius: 10px;
-  margin: 10px 10px;
+  margin: 10px;
 }
-nav ul .show {
+nav.nav-main ul .account-actions a.blue:hover {
+  background-color: rgb(16, 45, 141);
+}
+nav.nav-main ul .account-actions.dark {
+  background-color: rgb(68, 68, 68);
+}
+nav.nav-main ul .account-actions.blue {
+  background-color: rgb(13, 36, 112);
+}
+nav.nav-main ul .show {
   display: block;
 }
 
-section.g-content {
-  padding-top: 60px;
-}
-section.g-content .vision .vgrid-container {
-  display: grid;
-  grid-template-columns: repeat(4, 300px);
-  grid-template-rows: repeat(4, minmax(100px, auto));
-  justify-content: center;
-  grid-template-areas: "c1 . . ." ". c2 . ." ". . c3 ." ". . . c4";
-}
-section.g-content .vision .vgrid-container .vgrid-item {
-  align-content: center;
-  text-align: center;
-  align-content: center;
-  font-style: italic;
-  font-size: 5rem;
-}
-section.g-content .vision .vgrid-container .vgrid-item span {
-  font-weight: bolder;
-}
-section.g-content .vision .vgrid-container .vgrid-item-1 {
-  grid-area: c1;
-}
-section.g-content .vision .vgrid-container .vgrid-item-2 {
-  grid-area: c2;
-}
-section.g-content .vision .vgrid-container .vgrid-item-3 {
-  grid-area: c3;
-}
-section.g-content .vision .vgrid-container .vgrid-item-4 {
-  grid-area: c4;
-}
-section.g-content .desc {
+.nav-mobile {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 100%;
   width: 100%;
-  font-size: 20px;
+  min-height: 100vh;
+  z-index: 98;
+  background-color: #5d2471;
+  margin-top: 60px;
+  transition: 0.4s;
+}
+.nav-mobile a {
+  display: block;
+  text-align: center;
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto 16px;
+  padding: 12px 16px;
+  background-color: #6d2b85;
+  color: white;
+}
+.nav-mobile a:hover {
+  background-color: #7f329b;
+}
+.nav-mobile .user-acct {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+}
+.nav-mobile .user-acct img {
+  height: 100%;
+  margin-right: 0.3em;
+  border-radius: 50%;
+}
+
+.nav-mobile.is-active {
+  left: 100%;
 }
 
 section.bodywrapper {
@@ -313,6 +377,14 @@ section.bodywrapper .post-section .post .post-header .posted-date {
   padding-right: 1em;
   white-space: nowrap;
 }
+section.bodywrapper .post-section .post .post-header.dark {
+  background: rgb(68, 68, 68);
+  color: white;
+}
+section.bodywrapper .post-section .post .post-header.blue {
+  background: darkblue;
+  color: turquoise;
+}
 section.bodywrapper .post-section .post .post-body {
   position: relative;
   height: 100%;
@@ -344,7 +416,7 @@ section.bodywrapper .post-section .post .post-footer {
   display: flex;
   align-items: center;
   height: 36px;
-  color: inherit;
+  color: black;
   border-top: 1px solid black;
 }
 section.bodywrapper .post-section .post .post-footer .comment-button {
@@ -407,9 +479,16 @@ section.bodywrapper .post-section .post .post-footer .like-button button img {
   height: 100%;
 }
 section.bodywrapper .post-section .post .post-footer .like-button button .like-word {
+  color: black;
   margin-left: 4px;
   font-size: 12px;
   font-weight: 700;
+}
+section.bodywrapper .post-section .post .post-footer .like-button button .like-word.dark {
+  color: white;
+}
+section.bodywrapper .post-section .post .post-footer .like-button button .like-word.blue {
+  color: yellow;
 }
 section.bodywrapper .post-section .post .post-footer .like-button:hover {
   background-color: rgb(223, 223, 223);
@@ -418,6 +497,7 @@ section.bodywrapper .post-section .post .post-footer .share-button {
   display: flex;
   align-items: center;
   height: 100%;
+  color: inherit;
   padding: 0;
   border: 0;
 }
@@ -434,13 +514,34 @@ section.bodywrapper .post-section .post .post-footer .share-button button img {
   height: 100%;
 }
 section.bodywrapper .post-section .post .post-footer .share-button button .share-word {
-  color: Black;
   margin-left: 4px;
   font-size: 12px;
   font-weight: 700;
 }
+section.bodywrapper .post-section .post .post-footer .share-button button .share-word.dark {
+  color: white;
+}
+section.bodywrapper .post-section .post .post-footer .share-button button .share-word.blue {
+  color: yellow;
+}
 section.bodywrapper .post-section .post .post-footer .share-button:hover {
   background-color: rgb(223, 223, 223);
+}
+section.bodywrapper .post-section .post .post-footer.dark {
+  background-color: rgb(68, 68, 68);
+  color: white;
+}
+section.bodywrapper .post-section .post .post-footer.blue {
+  background-color: darkblue;
+  color: yellow;
+}
+section.bodywrapper .post-section .post.dark {
+  background-color: rgb(48, 48, 48);
+  color: white;
+}
+section.bodywrapper .post-section .post.blue {
+  background-color: rgb(0, 0, 90);
+  color: yellow;
 }
 section.bodywrapper .forum-section {
   max-width: 320px;
@@ -450,8 +551,15 @@ section.bodywrapper .forum-section {
 section.bodywrapper .forum-section .forum-profile {
   background-color: white;
   border-radius: 10px;
-  margin: 0 1em;
+  margin: 0 1em 1em 1em;
   position: relative;
+}
+section.bodywrapper .forum-section .forum-profile .index-title {
+  padding: 6px;
+  text-align: center;
+}
+section.bodywrapper .forum-section .forum-profile .index-desc {
+  padding: 0 12px 12px 12px;
 }
 section.bodywrapper .forum-section .forum-profile .forum-name {
   text-align: center;
@@ -489,6 +597,7 @@ section.bodywrapper .forum-section .forum-profile .forum-img #upload {
 section.bodywrapper .forum-section .forum-profile .forum-desc {
   font-size: 1em;
   margin: 2em 1em 0 1em;
+  padding-bottom: 1em;
 }
 section.bodywrapper .forum-section .forum-profile .data-count {
   display: flex;
@@ -516,8 +625,19 @@ section.bodywrapper .forum-section .forum-profile .join-forum {
   transform: translateX(-50%);
   margin-bottom: 5%;
 }
+section.bodywrapper .forum-section .forum-profile.dark {
+  background-color: rgb(48, 48, 48);
+  color: white;
+}
+section.bodywrapper .forum-section .forum-profile.blue {
+  background-color: rgb(0, 0, 90);
+  color: yellow;
+}
 
 @media only screen and (max-width: 1000px) {
+  nav.nav-main .menu, nav.nav-main .menu-closed, nav.nav-main .menu-opened {
+    display: none;
+  }
   section.bodywrapper {
     color: white;
     display: flex;
@@ -703,7 +823,6 @@ section.bodywrapper .forum-section .forum-profile .join-forum {
   section.bodywrapper .forum-section .forum-profile {
     background-color: white;
     border-radius: 10px;
-    margin: 0 1em;
     position: relative;
   }
   section.bodywrapper .forum-section .forum-profile .forum-name {
@@ -771,13 +890,13 @@ section.bodywrapper .forum-section .forum-profile .join-forum {
   }
 }
 @media only screen and (max-width: 800px) {
-  nav .logo {
+  nav.nav-main .logo {
     padding: 0 0;
   }
-  nav .searchbar {
+  nav.nav-main .searchbar {
     display: none;
   }
-  nav .menu {
+  nav.nav-main .menu-closed {
     display: block;
     fill: black;
     width: 2.2em;
@@ -785,34 +904,19 @@ section.bodywrapper .forum-section .forum-profile .join-forum {
     padding: 0 0;
     cursor: pointer;
   }
-  nav ul {
+  nav.nav-main .menu-opened {
+    display: block;
+    fill: black;
+    width: 2.2em;
+    margin-right: 1em;
+    padding: 0 0;
+    cursor: pointer;
+  }
+  nav.nav-main ul {
     display: none;
   }
-  section.g-content .vision .vgrid-container {
-    display: unset;
-  }
-  section.g-content .vision .vgrid-container .vgrid-item {
-    align-content: center;
-    text-align: center;
-    align-content: center;
-    font-style: italic;
-    font-size: 4rem;
-    margin-bottom: 40px;
-  }
-  section.g-content .vision .vgrid-container .vgrid-item span {
-    font-weight: bolder;
-  }
-  section.g-content .vision .vgrid-container .vgrid-item-1 {
-    grid-area: c1;
-  }
-  section.g-content .vision .vgrid-container .vgrid-item-2 {
-    grid-area: c2;
-  }
-  section.g-content .vision .vgrid-container .vgrid-item-3 {
-    grid-area: c3;
-  }
-  section.g-content .vision .vgrid-container .vgrid-item-4 {
-    grid-area: c4;
+  .nav-mobile.is-active {
+    left: 0;
   }
   section.bodywrapper {
     color: white;
@@ -1003,7 +1107,6 @@ section.bodywrapper .forum-section .forum-profile .join-forum {
   section.bodywrapper .forum-section .forum-profile {
     background-color: white;
     border-radius: 10px;
-    margin: 0 1em;
     position: relative;
   }
   section.bodywrapper .forum-section .forum-profile .forum-name {

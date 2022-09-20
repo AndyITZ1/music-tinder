@@ -24,3 +24,11 @@ file.addEventListener('change', function() {
         reader.readAsDataURL(chosenFile);
     }
 });
+
+var status = document.getElementById("status").value;
+if (status == "failed3") {
+	Swal.fire({
+		icon: 'error',
+		title: 'text-area missing'
+	});
+}

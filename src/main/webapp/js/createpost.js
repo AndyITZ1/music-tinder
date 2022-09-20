@@ -17,7 +17,6 @@ function createPost() {
     // Poster Image
     const posterImgWrapper = createDiv();
     posterImgWrapper.className = "poster-profile-img";
-    // Poster's Image to be done later ***
     const posterImg = document.createElement("img");
     const posterProfImg = document.getElementById("profile-pic");
     posterImg.src = posterProfImg.src;
@@ -68,7 +67,7 @@ function createPost() {
 
     
     const commIcon = document.createElement("img");
-    commIcon.src = "/images/message.png";
+    commIcon.src = "images/message.png";
     commIcon.alt = "Comment Button";
     commentBtnWrapper.appendChild(commIcon);
 
@@ -87,7 +86,7 @@ function createPost() {
     likeBtnWrapper.appendChild(likeBtn);
     
     const likeIcon = document.createElement("img");
-    likeIcon.src = "/images/like.png";
+    likeIcon.src = "images/like.png";
     likeIcon.alt = "Like Button";
     likeBtn.appendChild(likeIcon);
 
@@ -106,7 +105,7 @@ function createPost() {
     shareBtnWrapper.appendChild(shareBtn);
     
     const shareIcon = document.createElement("img");
-    shareIcon.src = "/images/sharec.png";
+    shareIcon.src = "images/sharec.png";
     shareIcon.alt = "Share Button";
     shareBtn.appendChild(shareIcon);
 
