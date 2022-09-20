@@ -111,7 +111,7 @@ String calculatePostedTime(Timestamp postTimestamp) {
                             <li><img src="images/hashtagc.png" alt=""></li>
                         </ul>
                     </div>
-                    <button type="submit" class="post-button" onclick="createPost()">Post</button>
+                    <button type="submit" class="post-button">Post</button>
                 </div>
             </form>
         </div>
@@ -374,6 +374,5 @@ String calculatePostedTime(Timestamp postTimestamp) {
     <input type="hidden" id="user" value=<%=session.getAttribute("name")%>>
     <script src="js/index.js" type="text/javascript"></script>
     <script src="js/newjeans.js" type="text/javascript"></script>
-    <script src="js/createpost.js" type="text/javascript"></script>
 </body>
 </html>
